@@ -42,7 +42,7 @@ path#frontend-dev-text {
     transform: translateX(-100%);
 }
 
-.img-tim-animation {
+.tim-animation {
     animation: slide-in 1s ease 0s 1 normal forwards running;
 }
 
