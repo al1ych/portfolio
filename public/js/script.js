@@ -26,7 +26,7 @@ window.onload = function () {
                 element.classList.add(animationClass);
             } else {
                 // В противном случае, удаляем класс анимации
-                element.classList.remove(animationClass);
+                // element.classList.remove(animationClass);
             }
         });
     });
