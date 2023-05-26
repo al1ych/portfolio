@@ -17,6 +17,7 @@ window.onload = function () {
         }
     }
 
+    let isScrolling = false;
     // 3. Слушаем событие скролла
     window.addEventListener('scroll', () => {
         const scrollPosition = window.pageYOffset + window.innerHeight; // текущая позиция скролла + высота видимой области экрана
@@ -24,6 +25,14 @@ window.onload = function () {
             if (scrollPosition >= top) {
                 // Если текущая позиция скролла больше или равна позиции элемента, добавляем класс анимации
                 element.classList.add(animationClass);
+                // location.href = '/#hola';
+                if (!isScrolling) {
+                    // scroll to bottom
+                    window.scrollTo(0, top);
+                    isScrolling = true;
+                    // block scroll
+                    document.body.style.overflow = 'hidden';
+                }
                 setTimeout(curtainFall, 5000);
             } else {
                 // В противном случае, удаляем класс анимации
@@ -33,12 +42,6 @@ window.onload = function () {
     });
 
     function curtainFall() {
-        document.getElementById('tim').classList.add('tim-animation-rev');
-
-        // todo
-        // 1 пролистнуть до конца экрана
-        // 2 заблокировать скроллинг
-
         for (let i in animationGroup) {
             for (let id of animationGroup[i]) {
                 console.log(id);

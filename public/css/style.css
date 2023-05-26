@@ -6,6 +6,8 @@
     border: 0;
     font-size: 0;
     transition: all 0.3s ease;
+    /* smooth scroll */
+    scroll-behavior: smooth;
 }
 
 #title {
@@ -252,7 +254,7 @@ path#frontend-dev-text {
 
 @keyframes slide-fade-in-down {
     0% {
-        transform: translateY(10%);
+        transform: translateY(100%);
         opacity: 0;
     }
     100% {
