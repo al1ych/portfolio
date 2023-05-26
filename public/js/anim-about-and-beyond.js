@@ -1,8 +1,22 @@
 const elements = [];
 
+function scrollToTopAbruptly() {
+    var html = document.documentElement;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    setTimeout(function () {
+        // restore smooth scrolling
+        html.style.scrollBehavior = 'smooth';
+        // lock scrolling
+        document.body.style.overflow = 'hidden';
+    }, 100);
+}
+
 window.onload = function () {
-    // locking in scrolling until the back button is fully emerged
-    document.body.style.overflow = 'hidden';
+
+    scrollToTopAbruptly();
+
+    // when we can scroll again
     setTimeout(() => {
         document.body.style.overflow = 'auto';
         document.getElementById('back-arrow').classList.remove('back-arrow-animation');

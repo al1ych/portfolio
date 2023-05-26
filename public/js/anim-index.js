@@ -18,6 +18,7 @@ window.onload = function () {
     }
 
     let isScrolling = false;
+    let scrollingInterval;
     // 3. Слушаем событие скролла
     window.addEventListener('scroll', () => {
         const scrollPosition = window.pageYOffset + window.innerHeight; // текущая позиция скролла + высота видимой области экрана
@@ -29,6 +30,7 @@ window.onload = function () {
                 if (!isScrolling) {
                     // scroll to bottom
                     window.scrollTo(0, top);
+                    scrollingInterval = setInterval(() => window.scrollTo(0, top), 1000);
                     isScrolling = true;
                     // block scroll
                     document.body.style.overflow = 'hidden';
