@@ -8,6 +8,12 @@
     transition: all 0.3s ease;
 }
 
+#title {
+    opacity: 0;
+    animation:  scroll-in 1s ease 0s 1 normal forwards running,
+                fade-in  1s ease 0s 1 normal forwards running;
+}
+
 #hola {
     position: relative;
 }
@@ -74,44 +80,23 @@ path#frontend-dev-text {
     transform: translateX(-100%);
 }
 
+.title-animation {
+    
+}
+
 .tim-animation {
     animation: slide-in 1s ease 0s 1 normal forwards running;
+}
+.tim-animation-rev {
+    animation: slide-out 1s ease 0.3s 1 normal both running;
 }
 
 .hola-soy-text-animation {
     animation:  slide-fade-in-right 1.4s ease 0s 1 normal forwards running;
 }
-
-.tim-text-animation {
-    animation: slide-fade-in-left 1.5s ease 0.2s 1 normal forwards running;
+.hola-soy-text-animation-rev {
+    animation:  slide-fade-out-right 0.5s ease 0.3s 1 normal both running;
 }
-
-.hola-frontend-animation {
-    animation: slide-in 1.4s ease 0.1s 1 normal forwards running;
-}
-
-.frontend-dev-text-animation {
-    animation: slide-in 1.2s ease 30ms 1 normal forwards running;
-}
-
-@keyframes slide-in {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 @keyframes slide-fade-in-right {
     0% {
         transform: translateX(10%);
@@ -122,7 +107,23 @@ path#frontend-dev-text {
         opacity: 1;
     }
 }
+@keyframes slide-fade-out-right {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(45%);
+        opacity: 0;
+    }
+}
 
+.tim-text-animation {
+    animation: slide-fade-in-left 1.5s ease 0.2s 1 normal forwards running;
+}
+.tim-text-animation-rev {
+    animation: slide-fade-out-left 0.6s ease 0.2s 1 normal both running;
+}
 @keyframes slide-fade-in-left {
     0% {
         transform: translateX(-4%);
@@ -131,6 +132,121 @@ path#frontend-dev-text {
     100% {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+@keyframes slide-fade-out-left {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-75%);
+        opacity: 0;
+    }
+}
+
+.hola-frontend-animation {
+    animation: slide-in 1.4s ease 0.1s 1 normal forwards running;
+}
+.hola-frontend-animation-rev {
+    animation: slide-out 1.4s ease 0s 1 normal forwards running;
+}
+
+.frontend-dev-text-animation {
+    animation: slide-in 1.2s ease 30ms 1 normal forwards running;
+}
+.frontend-dev-text-animation-rev {
+    animation: slide-out 1s ease 0.25s 1 normal both running;
+}
+
+
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slide-fade-out-down {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+}
+
+@keyframes size-out {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        transform: scale(2) translateY(-10%);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.scroll-out-animation {
+    animation: fade-out  1s ease 0s 1 normal forwards running,
+               scroll-up 1s ease 0s 1 normal forwards running;
+}
+
+@keyframes scroll-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@keyframes scroll-in {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 

@@ -32,7 +32,11 @@
 
         <script>
             function onHeaderClick() {
-                location.href='/#hola';
+                document.body.classList.add('scroll-out-animation')
+
+                setTimeout(() => {
+                    location.href='/#title';
+                }, 1000);
             }
         </script>
     </body>
