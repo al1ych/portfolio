@@ -12,6 +12,15 @@
     position: relative;
 }
 
+#about {
+    opacity: 0;
+    animation: fade-in 1.2s ease 30ms 1 normal forwards running;
+}
+
+.hidden {
+    display: none;
+}
+
 img#tim {
     background-color: transparent;
     position: absolute;
@@ -29,7 +38,7 @@ path#hola-soy-text {
 
 path#tim-text {
     opacity: 0;
-    transform: translateX(-10%);
+    transform: translateX(-5%);
 }
 
 line#hola-frontend {
@@ -59,7 +68,6 @@ path#frontend-dev-text {
 .frontend-dev-text-animation {
     animation: slide-in 1.2s ease 30ms 1 normal forwards running;
 }
-
 
 @keyframes slide-in {
     0% {
@@ -92,7 +100,7 @@ path#frontend-dev-text {
 
 @keyframes slide-fade-in-left {
     0% {
-        transform: translateX(-10%);
+        transform: translateX(-4%);
         opacity: 0;
     }
     100% {
