@@ -14,7 +14,11 @@
 
 #about {
     opacity: 0;
-    animation: fade-in 1.2s ease 30ms 1 normal forwards running;
+    animation: slide-fade-in-down 4s ease 30ms 1 normal forwards running;
+}
+
+#header-container {
+    height: 55vh;
 }
 
 .hidden {
@@ -105,6 +109,17 @@ path#frontend-dev-text {
     }
     100% {
         transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-fade-in-down {
+    0% {
+        transform: translateY(10%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
         opacity: 1;
     }
 }

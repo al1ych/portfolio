@@ -52,6 +52,7 @@ window.onload = function () {
                     wheelListener = window.addEventListener('wheel', function (event) {
                         if (event.deltaY < 0) {
                             // console.log('Прокрутка вверх', event.deltaY);
+                            this.document.getElementById('title').style.opacity = 1;
                             this.document.getElementById('hola').style.opacity = 1;
                             reachedPageBottom = false;
                             window.removeEventListener('wheel', wheelListener);
@@ -60,6 +61,7 @@ window.onload = function () {
                             if (reachedPageBottom) {
                                 const oldOpacity = this.document.getElementById('hola').style.opacity || 1;
                                 const newOpacity = Math.max(0, oldOpacity - event.deltaY / 3000);
+                                this.document.getElementById('title').style.opacity = newOpacity;
                                 this.document.getElementById('hola').style.opacity = newOpacity;
                                 console.log("newOpacity", newOpacity)
                                 if (newOpacity === 0) {
