@@ -14,11 +14,32 @@
 
 #about {
     opacity: 0;
-    animation: slide-fade-in-down 4s ease 30ms 1 normal forwards running;
+    animation: slide-fade-in-down 4s ease 0s 1 normal forwards running;
 }
 
 #header-container {
-    height: 55vh;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    cursor: pointer;
+}
+
+#header-container:hover>#back-arrow {
+    transform: scale(1.5);
+}
+
+#back-arrow {
+    margin-top: 10vh;
+    transition-duration: 350ms;
+    transition-timing-function: ease;
+
+    opacity: 0;
+}
+
+.back-arrow-animation {
+    animation: slide-fade-in-down   2s ease 0.9s 1 normal forwards running,
+               size-in              1s ease 0.9s 1 normal forwards running;
 }
 
 .hidden {
@@ -121,5 +142,14 @@ path#frontend-dev-text {
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes size-in {
+    0% {
+        transform: scale(2) translateY(10%);
+    }
+    100% {
+        transform: scale(1) translateY(0);
     }
 }

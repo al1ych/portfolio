@@ -7,7 +7,12 @@
         <script src="js/anim-about-and-beyond.js"></script>
     </head>
     <body>
-        <div id="header-container"></div>
+        <div id="header-container" onclick="onHeaderClick()">
+            <svg id="back-arrow" class="back-arrow-animation" width="30" height="16" viewBox="0 0 30 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="14.3536" y1="1.35355" x2="0.353553" y2="15.3536" stroke="#B0B0B0"/>
+                <line x1="14.3536" y1="0.646447" x2="29.3536" y2="15.6464" stroke="#B0B0B0"/>
+            </svg>                
+        </div>
         <div id="about">
             <!-- svg from file -->
             <svg viewBox="0 0 1512 982" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,5 +29,11 @@
                 <path d="M968.536 178.32C967.427 178.32 966.52 177.989 965.816 177.328C965.133 176.645 964.792 175.781 964.792 174.736C964.792 173.669 965.133 172.805 965.816 172.144C966.52 171.483 967.427 171.152 968.536 171.152C969.667 171.152 970.573 171.483 971.256 172.144C971.939 172.805 972.28 173.669 972.28 174.736C972.28 175.781 971.939 176.645 971.256 177.328C970.573 177.989 969.667 178.32 968.536 178.32Z" fill="black"/>
             </svg>
         </div>
+
+        <script>
+            function onHeaderClick() {
+                location.href='/#hola';
+            }
+        </script>
     </body>
 </html>

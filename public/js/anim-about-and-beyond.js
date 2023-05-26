@@ -1,6 +1,14 @@
 const elements = [];
 
 window.onload = function () {
+    // locking in scrolling until the back button is fully emerged
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+        document.body.style.overflow = 'auto';
+        document.getElementById('back-arrow').classList.remove('back-arrow-animation');
+        document.getElementById('back-arrow').style.opacity = '1';
+    }, 3000);
+
     const animationGroup = {
         // one element triggers a group of animations
         // 'tim': ['tim', 'hola-soy-text', 'tim-text', 'hola-frontend', 'frontend-dev-text'],
