@@ -56,17 +56,28 @@ window.onload = function () {
     window.addEventListener('scroll', () => {
         let cardBottom = document.getElementById('card-bottom');
         let cardTop = document.getElementById('card-top');
+        let projectsSection = document.getElementById('projects');
 
         // -15 vh to px
-        const defaultBottom = (5 + 35 - 100) * window.innerHeight / 100;
-        const defaultTop = (-12 + 35 - 100) * window.innerHeight / 100;
+        // get bottom of project section y offset from top of document
+        const projectsSectionBottom = projectsSection.getBoundingClientRect().bottom + window.pageYOffset;
+        // now top
+        const projectsSectionTop = projectsSection.getBoundingClientRect().top + window.pageYOffset;
+        console.log(projectsSectionBottom);
+
+        // get 1 vh
+        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) / 100;
+        console.log("1vh: ", vh, 1000 * 1/vh);
+        const defaultBottom = -projectsSectionTop   + 200   + 6500 * 1/vh;
+        const defaultTop    = -projectsSectionTop   + 20    + 6500 * 1/vh;
+        console.log("default top: ", defaultTop);
         // change move y coordinate of the bottom card
         if (!cardBottom.style.bottom) {
             cardBottom.style.bottom = (cardBottom.style.bottom || defaultBottom);
         }
         if (!cardTop.style.bottom) {
-                cardTop.style.bottom = (cardTop.style.bottom || defaultTop);
-            }
+            cardTop.style.bottom = (cardTop.style.bottom || defaultTop);
+        }
         const scrollPosition = window.pageYOffset + window.innerHeight;
         const speedBottom = 0.095, speedTop = 0.08;
         const speedRotBottom = -0.0008, speedRotTop = 0.004;

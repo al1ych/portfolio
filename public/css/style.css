@@ -50,7 +50,7 @@
     z-index: 1;
     width: 40vw;
     position: absolute;
-    bottom: 5vh - 100vh;
+    /* bottom: 5vh - 100vh; */
     right: 17vw;
 }
 
@@ -58,7 +58,7 @@
     z-index: 2;
     width: 40vw;
     position: absolute;
-    bottom: -10vh - 100vh;
+    /* bottom: -10vh - 100vh; */
     right: 10vw;
 }
 
