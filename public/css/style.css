@@ -22,7 +22,54 @@
 
 #about {
     opacity: 0;
-    animation: slide-fade-in-down-delayed 4s ease 0s 1 normal forwards running;
+    animation: slide-fade-in-down-delayed 2s ease 0s 1 normal forwards running;
+}
+
+/* #projects-title { */
+    /* fill: red; */
+    /* stroke-dasharray: 10;
+    stroke-dashoffset: 10; */
+
+    /* animation: sign 10s ease;
+    animation-fill-mode: forwards; */
+/*     
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important; */
+    
+    /* animation: slide-fade-in-down-delayed 2s ease 0s 1 normal forwards running; */
+    /* animation: sign 10s ease 0s 1 normal forwards running; */
+/* } */
+
+#card-bottom, #card-top {
+    transition: 20ms ease;
+}
+
+#card-bottom {
+    z-index: 1;
+    width: 40vw;
+    position: absolute;
+    bottom: 5vh - 100vh;
+    right: 17vw;
+}
+
+#card-top {
+    z-index: 2;
+    width: 40vw;
+    position: absolute;
+    bottom: -10vh - 100vh;
+    right: 10vw;
+}
+
+
+@keyframes sign {
+    0% {
+        /* stroke-dashoffset: 1820.523193359375; */
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
 }
 
 #header-container {
@@ -271,7 +318,7 @@ path#frontend-dev-text {
     0% {
         transform: translateY(100%);
     }
-    50% {
+    60% {
         opacity: 0;
     }
     100% {

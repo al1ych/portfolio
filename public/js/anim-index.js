@@ -35,7 +35,7 @@ window.onload = function () {
                     // block scroll
                     document.body.style.overflow = 'hidden';
                 }
-                setTimeout(curtainFall, 3000);
+                setTimeout(curtainFall, 1800);
             } else {
                 // В противном случае, удаляем класс анимации
                 // element.classList.remove(animationClass);

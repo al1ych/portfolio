@@ -13,7 +13,6 @@ function scrollToTopAbruptly() {
 }
 
 window.onload = function () {
-
     scrollToTopAbruptly();
 
     // when we can scroll again
@@ -21,7 +20,7 @@ window.onload = function () {
         document.body.style.overflow = 'auto';
         document.getElementById('back-arrow').classList.remove('back-arrow-animation');
         document.getElementById('back-arrow').style.opacity = '1';
-    }, 3000);
+    }, 1500);
 
     const animationGroup = {
         // one element triggers a group of animations
@@ -52,5 +51,30 @@ window.onload = function () {
                 element.classList.remove(animationClass);
             }
         });
+    });
+
+    window.addEventListener('scroll', () => {
+        let cardBottom = document.getElementById('card-bottom');
+        let cardTop = document.getElementById('card-top');
+
+        // -15 vh to px
+        const defaultBottom = (5 + 35 - 100) * window.innerHeight / 100;
+        const defaultTop = (-12 + 35 - 100) * window.innerHeight / 100;
+        // change move y coordinate of the bottom card
+        if (!cardBottom.style.bottom) {
+            cardBottom.style.bottom = (cardBottom.style.bottom || defaultBottom);
+        }
+        if (!cardTop.style.bottom) {
+                cardTop.style.bottom = (cardTop.style.bottom || defaultTop);
+            }
+        const scrollPosition = window.pageYOffset + window.innerHeight;
+        const speedBottom = 0.095, speedTop = 0.08;
+        const speedRotBottom = -0.0008, speedRotTop = 0.004;
+
+        cardBottom.style.bottom = parseInt(defaultBottom) - scrollPosition*speedBottom + 'px';
+        cardTop.style.bottom = parseInt(defaultTop) - scrollPosition*speedTop + 'px';
+
+        cardBottom.style.rotate = 0 + scrollPosition*speedRotBottom + 'deg';
+        cardTop.style.rotate = -0 + scrollPosition*speedRotTop+ 'deg';
     });
 }
