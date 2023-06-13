@@ -1,44 +1,47 @@
 <html>
-    <head>
-        <title> Tim | Portfolio </title>
-        <link rel="stylesheet" href="css/style.css">
-        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+
+<head>
+    <title> Tim | Portfolio </title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
-        <script src="js/anim-about-and-beyond.js"></script>
-    </head>
-    <body>
-        
-        <div id="header-container" onclick="onHeaderClick()">
-            <svg id="back-arrow" class="back-arrow-animation" width="30" height="16" viewBox="0 0 30 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="14.3536" y1="1.35355" x2="0.353553" y2="15.3536" stroke="#B0B0B0"/>
-                <line x1="14.3536" y1="0.646447" x2="29.3536" y2="15.6464" stroke="#B0B0B0"/>
-            </svg>
-        </div>
+    <script src="js/anim-about-and-beyond.js"></script>
+</head>
 
-        
-        <div id="about">
-            <img src="img/svg/ABOUT.svg" alt="about">
-        </div>
+<body>
 
-        <div id="projects">
-            <img src="img/card-bottom.png" id="card-bottom" />
-            <img src="img/card-top.png" id="card-top" />
+    <div id="header-container" onclick="onHeaderClick()">
+        <svg id="back-arrow" class="back-arrow-animation" width="30" height="16" viewBox="0 0 30 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <line x1="14.3536" y1="1.35355" x2="0.353553" y2="15.3536" stroke="#B0B0B0" />
+            <line x1="14.3536" y1="0.646447" x2="29.3536" y2="15.6464" stroke="#B0B0B0" />
+        </svg>
+    </div>
 
-            <img src="img/svg/PROJECTS.svg" alt="projects" />
-        </div>
 
-        <div id="construction-zone">
-            <img src="img/svg/CONSTRUCTION.svg" alt="construction zone" />
-        </div>
+    <div id="about">
+        <img src="img/svg/ABOUT.svg" alt="about">
+    </div>
 
-        <!-- <div id="projects">
+    <div id="projects">
+        <img src="img/card-bottom.png" id="card-bottom" />
+        <img src="img/card-top.png" id="card-top" />
+
+        <img src="img/svg/PROJECTS.svg" alt="projects" />
+    </div>
+
+    <div id="construction-zone">
+        <img src="img/svg/CONSTRUCTION.svg" alt="construction zone" />
+    </div>
+
+    <!-- <div id="projects">
         </div> -->
 
-        <div id="project-2">
-            <img id="p2bg" src="img/svg/proj2-bg.svg" alt="" />
-            <!-- <img id="p2m" src="img/svg/proj2-matrix.svg" alt="" /> -->
-            <div id="p2m"></div>
-            <!-- <svg id="p2m" viewBox="0 0 1512 982" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div id="project-2">
+        <img id="p2bg" src="img/svg/proj2-bg.svg" alt="" />
+        <!-- <img id="p2m" src="img/svg/proj2-matrix.svg" alt="" /> -->
+        <div id="p2m"></div>
+        <!-- <svg id="p2m" viewBox="0 0 1512 982" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect class="matrix-cell" width="33.5437" height="33.5437" rx="6" transform="matrix(1 0 0 -1 231 550.853)" fill="#2E333A"/>
                 <rect class="matrix-cell" width="33.5437" height="33.5437" rx="6" transform="matrix(1 0 0 -1 231 569.853)" fill="#2E333A"/>
                 <rect class="matrix-cell" width="33.5437" height="33.5437" rx="6" transform="matrix(1 0 0 -1 271.63 569.853)" fill="#2E333A"/>
@@ -145,80 +148,205 @@
                 <rect class="matrix-cell" width="33.5437" height="33.5437" rx="6" transform="matrix(1 0 0 -1 1246.67 446.544)" fill="#2E6B38"/>
                 <rect class="matrix-cell" width="33.5437" height="33.5437" rx="6" transform="matrix(1 0 0 -1 1206.04 446.544)" fill="#1F432B"/>
             </svg> -->
-        </div>
+    </div>
 
 
-        <!-- <div id="projects-2">
+    <!-- <div id="projects-2">
             <img src="img/svg/PROJECTS 2.svg" alt="projects 2">
         </div> -->
 
-        <script>
-            function onHeaderClick() {
-                document.body.classList.add('scroll-out-animation')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.6.0/tinycolor.min.js"></script>
 
-                setTimeout(() => {
-                    location.href='/#title';
-                }, 1000);
+    <script>
+        console.log("contrast:::", tinycolor("red").complement().toHexString()); // "#ff0000"
+
+        function onHeaderClick() {
+            document.body.classList.add('scroll-out-animation')
+
+            setTimeout(() => {
+                location.href = '/#title';
+            }, 1000);
+        }
+
+        function populateMatrix() {
+
+            const colors = [
+                "#2E333A", "#2E333A", "#2E333A", "#2E333A", "#2E333A", "#2E333A",
+                "#1F432B", "#1F432B", "#1F432B", "#1F432B",
+                "#52A44E", "#52A44E",
+                "#2E6B38",
+                "#6CD064"
+            ];
+
+            const projects = [
+                {
+                    title: "rcun: online movie theater",
+                    desc: "This is a cross-platform application allowing for you to communicate and watch your favorite TV shows withfriends on-line.",
+                    img: "../img/companies/rcun.png",
+                },
+                {
+                    title: "mts",
+                    desc: "Something about MTS!",
+                    img: "../img/companies/mts.png",
+                },
+                {
+                    title: "ancileo",
+                    desc: "Something about Ancileo!",
+                    img: "../img/companies/anci.png",
+                },
+                {
+                    title: "oh my price!",
+                    desc: "Something about omp!",
+                    img: "../img/companies/rcun.png",
+                },
+                {
+                    title: "castingform",
+                    desc: "Something about Castingform!",
+                    img: "../img/companies/cf.png",
+                },
+                {
+                    title: "your company",
+                    desc: "Your company would look good here :3",
+                    img: "../img/companies/love.png",
+                },
+                {
+                    title: "talk now",
+                    desc: "Something about tn!",
+                    img: "../img/companies/tn.png",
+                },
+                {
+                    title: "way in",
+                    desc: "Something about wayin!",
+                    img: "../img/companies/wi.png",
+                },
+                {
+                    title: "cvet",
+                    desc: "Something about cvetovik!",
+                    img: "../img/companies/cvet.png",
+                },
+            ];
+
+            const container = document.querySelector('#p2m');
+            for (let i = 0; i < 26 * 5; i++) {
+                const div = document.createElement('div');
+                div.className = 'matrix-cell';
+                div.style.backgroundColor = getRandomColor();
+
+                // crate image element
+                const img = document.createElement('img');
+                img.src = projects[i % projects.length].img;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.mixBlendMode = 'screen';
+                img.style.objectFit = 'scale-down';
+                img.style.borderRadius = '6px';
+                img.style.transition = 'opacity 0.7s ease';
+                img.style.opacity = '0';
+                // append to div
+                div.appendChild(img);
+
+                div.addEventListener('mouseover', function () {
+                    const cs = this.style.backgroundColor.split(',');
+                    const rgb = {
+                        r: cs[0].split('(')[1],
+                        g: cs[1],
+                        b: cs[2].split(')')[0]
+                    };
+                    const contrast = getContrastColor(rgb);
+                    this.style.boxShadow = `0 0 25px ${this.style.backgroundColor}`;
+                    img.style.opacity = '1';
+                });
+                div.addEventListener('mouseout', function () {
+                    this.style.boxShadow = '';
+                    // hide img
+                    img.style.opacity = '0';
+                });
+                container.appendChild(div);
             }
 
-            function populateMatrix() {
-                const colors = [
-                    "#2E333A", "#2E333A", "#2E333A", "#2E333A",  "#2E333A", "#2E333A", 
-                    "#1F432B", "#1F432B", "#1F432B", "#1F432B",
-                    "#52A44E", "#52A44E",
-                    "#2E6B38",
-                    "#6CD064"
-                ];
-
-                const container = document.querySelector('#p2m');
-                for (let i = 0; i < 26*7; i++) {
-                    const div = document.createElement('div');
-                    div.className = 'matrix-cell';
-                    div.style.backgroundColor = getRandomColor();
-                    container.appendChild(div);
+            function getContrastColor(rgb) {
+                function rgbToHsl(r, g, b) {
+                    r /= 255, g /= 255, b /= 255;
+                    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+                    var h, s, l = (max + min) / 2;
+                    if (max == min) {
+                        h = s = 0; // achromatic
+                    } else {
+                        var d = max - min;
+                        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                        switch (max) {
+                            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                            case g: h = (b - r) / d + 2; break;
+                            case b: h = (r - g) / d + 4; break;
+                        }
+                        h /= 6;
+                    }
+                    return [h, s, l];
                 }
 
-                function getRandomColor() {
-                    const randomIndex = Math.floor(Math.random() * colors.length);
-                    return colors[randomIndex];
+                function hslToHex(h, s, l) {
+                    l /= 100;
+                    const a = s * Math.min(l, 1 - l) / 100;
+                    const f = n => {
+                        const k = (n + h / 30) % 12;
+                        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                        return Math.round(255 * color).toString(16).padStart(2, '0');
+                    };
+                    return `#${f(0)}${f(8)}${f(4)}`;
                 }
 
+                var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                var oppositeHue = (hsl[0] + 0.5) % 1; // добавляем 0.5 (это эквивалентно добавлению 180 градусов), и берем остаток от деления на 1, чтобы остаться в диапазоне от 0 до 1
+
+                return hslToHex(oppositeHue * 360, hsl[1] * 100, hsl[2] * 100); // Это противоположный цвет в формате HEX
             }
-        </script>
-    </body>
 
-    <style>
-        #project-2 {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            background-color: #2E333A;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+            function getRandomColor() {
+                const randomIndex = Math.floor(Math.random() * colors.length);
+                return colors[randomIndex];
+            }
 
-        #p2bg, #p2m {
-            position: absolute;
-        }
-        
-        #p2m {
-            display: grid;
-            grid-template-columns: repeat(26, 1fr);
-            gap: 5px;
-        }
-
-        #p2m .matrix-cell {
-            width: 30px;
-            height: 30px;
-            background-color: green;
-            border-radius: 6px;
         }
 
 
-        .matrix-cell:hover {
-            transform: scale(2);
-            z-index: 1;
-        }
-    </style>
+    </script>
+</body>
+
+<style>
+    #project-2 {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: #23272D;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #p2bg,
+    #p2m {
+        position: absolute;
+    }
+
+    #p2m {
+        display: grid;
+        grid-template-columns: repeat(26, 1fr);
+        gap: 5px;
+    }
+
+    #p2m .matrix-cell {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-color: green;
+        border-radius: 6px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .matrix-cell:hover {
+        transform: scale(2);
+        z-index: 1;
+    }
+</style>
+
 </html>
