@@ -40,6 +40,7 @@
     <div id="project-2">
         <img id="p2bg" src="img/svg/proj2-bg.svg" alt="" />
         <!-- <img id="p2m" src="img/svg/proj2-matrix.svg" alt="" /> -->
+
         <div id="project-text-block">
             <div id="project-title">Project title</div>
             <div id="project-description">Project description</div>
@@ -175,7 +176,7 @@
         function populateMatrix() {
 
             const colors = [
-                "#2E333A", "#2E333A", "#2E333A", "#2E333A", "#2E333A", "#2E333A",
+                "#2E333A", "#2E333A", "#2E333A", "#2E333A", "#2E333A",
                 "#1F432B", "#1F432B", "#1F432B", "#1F432B",
                 "#52A44E", "#52A44E",
                 "#2E6B38",
@@ -231,6 +232,9 @@
             ];
 
             const container = document.querySelector('#p2m');
+            const title = document.querySelector('#project-title');
+            const desc = document.querySelector('#project-description');
+
             for (let i = 0; i < 26 * 4; i++) {
                 const div = document.createElement('div');
                 div.className = 'matrix-cell';
@@ -244,9 +248,10 @@
                 img.style.mixBlendMode = 'screen';
                 img.style.objectFit = 'scale-down';
                 img.style.borderRadius = '6px';
-                img.style.transition = 'opacity 0.7s ease';
+                img.style.transition = 'opacity 0.4s ease';
                 img.style.opacity = '0';
                 div.appendChild(img);
+
 
                 div.addEventListener('mouseover', function () {
                     //color
@@ -263,18 +268,24 @@
                     img.style.opacity = '1';
 
                     //text
-                    const title = document.querySelector('#project-title');
-                    const desc = document.querySelector('#project-description');
                     title.innerHTML = projects[i % projects.length].title;
                     desc.innerHTML = projects[i % projects.length].desc;
+                    // desc.style.width = title.getBoundingClientRect().width;
                 });
+
                 div.addEventListener('mouseout', function () {
                     this.style.boxShadow = '';
                     // hide img
                     img.style.opacity = '0';
                 });
+
                 container.appendChild(div);
             }
+
+            const projectTextBlock = document.querySelector('#project-text-block');
+            projectTextBlock.style.width = container.getBoundingClientRect().width;
+            projectTextBlock.style.height = container.getBoundingClientRect().height;
+            projectTextBlock.style.transform = `translate(0, -${container.getBoundingClientRect().height + 35}px)`;
 
             function getContrastColor(rgb) {
                 function rgbToHsl(r, g, b) {
@@ -338,16 +349,12 @@
     }
 
     #project-text-block {
-        /* position: absolute; */
-        /* top: 0;
+        position: relative;
         left: 0;
-        width: 100%;
-        height: 100%; */
-        /* background-color: red; */
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: start;
+        align-items: start;
         transform: translate(0, -250%);
     }
 
@@ -368,6 +375,8 @@
         font-size: 22px;
         line-height: 26px;
         color: #BCBCBC;
+        width: 60%;
+        margin-top: 10px;
     }
 
     #p2bg,
