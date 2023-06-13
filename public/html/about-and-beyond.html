@@ -40,6 +40,10 @@
     <div id="project-2">
         <img id="p2bg" src="img/svg/proj2-bg.svg" alt="" />
         <!-- <img id="p2m" src="img/svg/proj2-matrix.svg" alt="" /> -->
+        <div id="project-text-block">
+            <div id="project-title">Project title</div>
+            <div id="project-description">Project description</div>
+        </div>
         <div id="p2m"></div>
         <!-- <svg id="p2m" viewBox="0 0 1512 982" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect class="matrix-cell" width="33.5437" height="33.5437" rx="6" transform="matrix(1 0 0 -1 231 550.853)" fill="#2E333A"/>
@@ -227,7 +231,7 @@
             ];
 
             const container = document.querySelector('#p2m');
-            for (let i = 0; i < 26 * 5; i++) {
+            for (let i = 0; i < 26 * 4; i++) {
                 const div = document.createElement('div');
                 div.className = 'matrix-cell';
                 div.style.backgroundColor = getRandomColor();
@@ -242,10 +246,10 @@
                 img.style.borderRadius = '6px';
                 img.style.transition = 'opacity 0.7s ease';
                 img.style.opacity = '0';
-                // append to div
                 div.appendChild(img);
 
                 div.addEventListener('mouseover', function () {
+                    //color
                     const cs = this.style.backgroundColor.split(',');
                     const rgb = {
                         r: cs[0].split('(')[1],
@@ -254,7 +258,15 @@
                     };
                     const contrast = getContrastColor(rgb);
                     this.style.boxShadow = `0 0 25px ${this.style.backgroundColor}`;
+
+                    //img
                     img.style.opacity = '1';
+
+                    //text
+                    const title = document.querySelector('#project-title');
+                    const desc = document.querySelector('#project-description');
+                    title.innerHTML = projects[i % projects.length].title;
+                    desc.innerHTML = projects[i % projects.length].desc;
                 });
                 div.addEventListener('mouseout', function () {
                     this.style.boxShadow = '';
@@ -313,6 +325,8 @@
 </body>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+
     #project-2 {
         position: relative;
         width: 100vw;
@@ -321,6 +335,39 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    #project-text-block {
+        /* position: absolute; */
+        /* top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; */
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translate(0, -250%);
+    }
+
+    #project-title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 47px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+
+    #project-description {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 26px;
+        color: #BCBCBC;
     }
 
     #p2bg,
