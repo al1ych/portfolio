@@ -27,7 +27,7 @@
         <img src="img/card-bottom.png" id="card-bottom" />
         <img src="img/card-top.png" id="card-top" />
 
-        <img src="img/svg/PROJECTS (4).svg" alt="projects" />
+        <img src="img/svg/PROJECTS.svg" alt="projects" />
     </div>
 
 
@@ -194,6 +194,7 @@
                     title: "rcun: online movie theater",
                     desc: "This is a cross-platform application allowing for you to communicate and watch your favorite TV shows withfriends on-line.",
                     img: "../img/companies/rcun.png",
+                    jump: "#rcun",
                 },
                 {
                     title: "mts",
@@ -283,6 +284,11 @@
                     this.style.boxShadow = '';
                     // hide img
                     img.style.opacity = '0';
+                });
+
+                div.addEventListener('click', function () {
+                    if (projects[i % projects.length].jump)
+                        location.href = projects[i % projects.length].jump;
                 });
 
                 container.appendChild(div);
