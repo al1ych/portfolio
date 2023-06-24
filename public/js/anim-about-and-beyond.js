@@ -13,11 +13,12 @@ function scrollToTopAbruptly() {
 }
 
 window.onload = function () {
-  scrollToTopAbruptly()
-
-  populateMatrix()
+  var toTopInterval = setInterval(scrollToTopAbruptly, 10)
 
   // when we can scroll again
+  setTimeout(() => {
+    clearInterval(toTopInterval)
+  }, 1000)
   setTimeout(() => {
     document.body.style.overflow = "auto"
     document
@@ -25,6 +26,8 @@ window.onload = function () {
       .classList.remove("back-arrow-animation")
     document.getElementById("back-arrow").style.opacity = "1"
   }, 1500)
+
+  populateMatrix()
 
   const animationGroup = {
     // one element triggers a group of animations
@@ -89,8 +92,8 @@ window.onload = function () {
       cardTop.style.bottom = cardTop.style.bottom || defaultTop
     }
     const scrollPosition = window.pageYOffset + window.innerHeight
-    const speedBottom = 0.095,
-      speedTop = 0.08
+    const speedBottom = 0.045,
+      speedTop = 0.035
     const speedRotBottom = -0.0008,
       speedRotTop = 0.004
 
