@@ -82,7 +82,7 @@ window.onload = function () {
       ) / 100
     console.log("1vh: ", vh, (1000 * 1) / vh)
     const defaultBottom = -projectsSectionTop + 280 + (6500 * 1) / vh
-    const defaultTop = -projectsSectionTop + 70 + (6500 * 1) / vh
+    const defaultTop = -projectsSectionTop + 150 + (6500 * 1) / vh
     console.log("default top: ", defaultTop)
     // change move y coordinate of the bottom card
     if (!cardBottom.style.bottom) {
@@ -92,10 +92,10 @@ window.onload = function () {
       cardTop.style.bottom = cardTop.style.bottom || defaultTop
     }
     const scrollPosition = window.pageYOffset + window.innerHeight
-    const speedBottom = 0.085,
-      speedTop = 0.065
-    const speedRotBottom = -0.00092,
-      speedRotTop = 0.003
+    const speedBottom = 0.065,
+      speedTop = 0.085
+    const speedRotBottom = -0.003,
+      speedRotTop = 0.00092
 
     cardBottom.style.bottom =
       parseInt(defaultBottom) - scrollPosition * speedBottom + "px"
