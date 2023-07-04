@@ -95,7 +95,7 @@ window.onload = function () {
     const speedBottom = 0.065,
       speedTop = 0.085
     const speedRotBottom = -0.003,
-      speedRotTop = 0.00092
+      speedRotTop = 0.0031
 
     cardBottom.style.bottom =
       parseInt(defaultBottom) - scrollPosition * speedBottom + "px"
