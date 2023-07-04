@@ -105,4 +105,25 @@ window.onload = function () {
     cardBottom.style.rotate = 0 + scrollPosition * speedRotBottom + "deg"
     cardTop.style.rotate = -0 + scrollPosition * speedRotTop + "deg"
   })
+
+  // intersection observer on #projects
+  const projectsSection = document.getElementById("projects")
+  const projectsSectionObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // console.log('projects section is intersecting')
+          // remove observer
+          projectsSectionObserver.unobserve(entry.target)
+          // start animation
+          setTimeout(() => {
+            document
+              .getElementById("projects")
+              .classList.add("slide-fade-in-down")
+          }, 1000)
+        }
+      })
+    }
+  )
+  projectsSectionObserver.observe(projectsSection)
 }

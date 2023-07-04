@@ -47,6 +47,14 @@
   transition: 20ms ease;
 }
 
+#contact-me-rect {
+  transform-origin: 63.7% 80% !important;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+
 #card-bottom {
   z-index: 1;
   width: 40vw;
