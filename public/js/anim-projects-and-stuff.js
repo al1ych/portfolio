@@ -13,7 +13,7 @@ function scrollToTopAbruptly() {
 }
 
 window.onload = function () {
-  onElementInView("bottom-scroll-spacer")
+  // onElementInView("bottom-scroll-spacer")
 
   var toTopInterval = setInterval(scrollToTopAbruptly, 10)
 
@@ -29,24 +29,24 @@ window.onload = function () {
     document.getElementById("back-arrow").style.opacity = "1"
   }, 1500)
 
-  // populateMatrix()
+  populateMatrix()
 
-  // const animationGroup = {
-  //   // one element triggers a group of animations
-  //   // 'tim': ['tim', 'hola-soy-text', 'tim-text', 'hola-frontend', 'frontend-dev-text'],
-  // }
+  const animationGroup = {
+    // one element triggers a group of animations
+    // 'tim': ['tim', 'hola-soy-text', 'tim-text', 'hola-frontend', 'frontend-dev-text'],
+  }
 
-  // for (let id in animationGroup) {
-  //   const element = document.getElementById(id)
-  //   const top = element.getBoundingClientRect().top + window.pageYOffset
-  //   for (let animationClass of animationGroup[id]) {
-  //     elements.push({
-  //       element: document.getElementById(animationClass),
-  //       top,
-  //       animationClass: `${animationClass}-animation`,
-  //     })
-  //   }
-  // }
+  for (let id in animationGroup) {
+    const element = document.getElementById(id)
+    const top = element.getBoundingClientRect().top + window.pageYOffset
+    for (let animationClass of animationGroup[id]) {
+      elements.push({
+        element: document.getElementById(animationClass),
+        top,
+        animationClass: `${animationClass}-animation`,
+      })
+    }
+  }
 
   window.addEventListener("scroll", () => {
     let cardBottom = document.getElementById("card-bottom")

@@ -1,0 +1,319 @@
+<html>
+
+<head>
+    <title> Tim | Portfolio </title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
+    <script src="js/anim-projects-and-stuff.js"></script>
+</head>
+
+<body>
+
+    <div id="header-container" onclick="onHeaderClick()">
+        <svg id="back-arrow" class="back-arrow-animation" width="30" height="16" viewBox="0 0 30 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <line x1="14.3536" y1="1.35355" x2="0.353553" y2="15.3536" stroke="#B0B0B0" />
+            <line x1="14.3536" y1="0.646447" x2="29.3536" y2="15.6464" stroke="#B0B0B0" />
+        </svg>
+    </div>
+
+    <div id="project-2">
+        <img id="p2bg" src="img/svg/proj2-bg.svg" alt="" />
+        <!-- <img id="p2m" src="img/svg/proj2-matrix.svg" alt="" /> -->
+
+        <div id="project-text-block">
+            <div id="project-title">My projects</div>
+            <div id="project-description">Hover over the tiles below</br>to see what happens 👀</div>
+        </div>
+
+        <div id="p2m">
+            </svg>
+        </div>
+    </div>
+
+    <div id="rcun">
+        <img src="img/svg/RCUN.svg" alt="rcun section">
+    </div>
+
+    <div id="rcun-2">
+        <img src="img/svg/RCUN2.svg" alt="rcun section">
+    </div>
+
+    <div id="mts">
+        <img src="img/svg/MTS.svg" alt="mts section">
+    </div>
+
+    <div id="mts-2">
+        <img src="img/svg/MTS2.svg" alt="mts section">
+    </div>
+
+    <div id="construction-zone">
+        <img src="img/svg/CONSTRUCTION.svg" alt="construction zone" />
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.6.0/tinycolor.min.js"></script>
+
+    <script>
+        console.log("contrast:::", tinycolor("red").complement().toHexString()); // "#ff0000"
+
+        function onHeaderClick() {
+            document.body.classList.add('scroll-out-animation')
+            document.body.classList.add('white-background')
+
+            setTimeout(() => {
+                location.href = '/#title';
+            }, 500);
+        }
+
+        function populateMatrix() {
+
+            const colors = [
+                "#2E333A", "#2E333A", "#2E333A", "#2E333A", "#2E333A",
+                "#1F432B", "#1F432B", "#1F432B", "#1F432B",
+                "#52A44E", "#52A44E",
+                "#2E6B38",
+                "#6CD064"
+            ];
+
+            const projects = [
+                {
+                    title: "rcun: online movie theater",
+                    desc: "This is a cross-platform application allowing for you to communicate and watch your favorite TV shows withfriends on-line.",
+                    img: "../img/companies/rcun.png",
+                    jump: "#rcun",
+                },
+                {
+                    title: "mts",
+                    desc: "Something about MTS!",
+                    img: "../img/companies/mts.png",
+                    jump: "#mts",
+                },
+                {
+                    title: "ancileo",
+                    desc: "Something about Ancileo!",
+                    img: "../img/companies/anci.png",
+                },
+                {
+                    title: "oh my price!",
+                    desc: "Something about omp!",
+                    img: "../img/companies/rcun.png",
+                },
+                {
+                    title: "castingform",
+                    desc: "Something about Castingform!",
+                    img: "../img/companies/cf.png",
+                },
+                {
+                    title: "your company",
+                    desc: "Your company would look good here :3",
+                    img: "../img/companies/love.png",
+                },
+                {
+                    title: "talk now",
+                    desc: "Something about tn!",
+                    img: "../img/companies/tn.png",
+                },
+                {
+                    title: "way in",
+                    desc: "Something about wayin!",
+                    img: "../img/companies/wi.png",
+                },
+                {
+                    title: "cvet",
+                    desc: "Something about cvetovik!",
+                    img: "../img/companies/cvet.png",
+                },
+            ];
+
+            const container = document.querySelector('#p2m');
+            const title = document.querySelector('#project-title');
+            const desc = document.querySelector('#project-description');
+
+            for (let i = 0; i < 26 * 4; i++) {
+                const div = document.createElement('div');
+                div.className = 'matrix-cell';
+                div.style.backgroundColor = getRandomColor();
+
+                // crate image element
+                const img = document.createElement('img');
+                img.src = projects[i % projects.length].img;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.mixBlendMode = 'screen';
+                img.style.objectFit = 'scale-down';
+                img.style.borderRadius = '6px';
+                img.style.transition = 'opacity 0.4s ease';
+                img.style.opacity = '0';
+                div.appendChild(img);
+
+
+                div.addEventListener('mouseover', function () {
+                    //color
+                    const cs = this.style.backgroundColor.split(',');
+                    const rgb = {
+                        r: cs[0].split('(')[1],
+                        g: cs[1],
+                        b: cs[2].split(')')[0]
+                    };
+                    const contrast = getContrastColor(rgb);
+                    this.style.boxShadow = `0 0 25px ${this.style.backgroundColor}`;
+
+                    //img
+                    img.style.opacity = '1';
+
+                    //text
+                    title.innerHTML = projects[i % projects.length].title;
+                    desc.innerHTML = projects[i % projects.length].desc;
+                    // desc.style.width = title.getBoundingClientRect().width;
+                });
+
+                div.addEventListener('mouseout', function () {
+                    this.style.boxShadow = '';
+                    // hide img
+                    img.style.opacity = '0';
+                });
+
+                div.addEventListener('click', function () {
+                    if (projects[i % projects.length].jump)
+                        location.href = projects[i % projects.length].jump;
+                });
+
+                container.appendChild(div);
+            }
+
+            const projectTextBlock = document.querySelector('#project-text-block');
+            projectTextBlock.style.width = container.getBoundingClientRect().width;
+            projectTextBlock.style.height = container.getBoundingClientRect().height;
+            projectTextBlock.style.transform = `translate(0, -${container.getBoundingClientRect().height + 35}px)`;
+
+            function getContrastColor(rgb) {
+                function rgbToHsl(r, g, b) {
+                    r /= 255, g /= 255, b /= 255;
+                    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+                    var h, s, l = (max + min) / 2;
+                    if (max == min) {
+                        h = s = 0; // achromatic
+                    } else {
+                        var d = max - min;
+                        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                        switch (max) {
+                            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                            case g: h = (b - r) / d + 2; break;
+                            case b: h = (r - g) / d + 4; break;
+                        }
+                        h /= 6;
+                    }
+                    return [h, s, l];
+                }
+
+                function hslToHex(h, s, l) {
+                    l /= 100;
+                    const a = s * Math.min(l, 1 - l) / 100;
+                    const f = n => {
+                        const k = (n + h / 30) % 12;
+                        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                        return Math.round(255 * color).toString(16).padStart(2, '0');
+                    };
+                    return `#${f(0)}${f(8)}${f(4)}`;
+                }
+
+                var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                var oppositeHue = (hsl[0] + 0.5) % 1; // добавляем 0.5 (это эквивалентно добавлению 180 градусов), и берем остаток от деления на 1, чтобы остаться в диапазоне от 0 до 1
+
+                return hslToHex(oppositeHue * 360, hsl[1] * 100, hsl[2] * 100); // Это противоположный цвет в формате HEX
+            }
+
+            function getRandomColor() {
+                const randomIndex = Math.floor(Math.random() * colors.length);
+                return colors[randomIndex];
+            }
+
+        }
+
+
+    </script>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+
+
+    body {
+        background-color: #23272D;
+    }
+
+    .white-background {
+        background-color: #FFFFFF;
+    }
+
+    #project-2 {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background-color: #23272D;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 30;
+    }
+
+    #project-text-block {
+        position: relative;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        transform: translate(0, -250%);
+    }
+
+    #project-title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 47px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+
+    #project-description {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 26px;
+        color: #BCBCBC;
+        width: 60%;
+        margin-top: 10px;
+    }
+
+    #p2bg,
+    #p2m {
+        position: absolute;
+    }
+
+    #p2m {
+        display: grid;
+        grid-template-columns: repeat(26, 1fr);
+        gap: 5px;
+    }
+
+    #p2m .matrix-cell {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-color: green;
+        border-radius: 6px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .matrix-cell:hover {
+        transform: scale(2);
+        z-index: 1;
+    }
+</style>
+
+</html>

@@ -1,24 +1,26 @@
 // boilerplate
 
 // import express
-const express = require('express');
-
+const express = require("express")
 
 // create express app
-const app = express();
+const app = express()
 
 // set port
-const port = 8000;
+const port = 8000
 
 // static files
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/public"))
 
 // routes
-app.get('/about-and-beyond', (req, res) => {
-    res.sendFile(__dirname + '/public/html/about-and-beyond.html');
-});
+app.get("/about-and-beyond", (req, res) => {
+  res.sendFile(__dirname + "/public/html/about-and-beyond.html")
+})
+app.get("/projects-and-stuff", (req, res) => {
+  res.sendFile(__dirname + "/public/html/projects-and-stuff.html")
+})
 
 // listen on port 8000
 app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-});
+  console.log(`Server is listening on port ${port}`)
+})

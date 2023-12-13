@@ -25,6 +25,15 @@
   animation: slide-fade-in-down-delayed 2s ease 0s 1 normal forwards running;
 }
 
+#project-text-block > * {
+  opacity: 0;
+  animation: slide-fade-in-down-delayed 1s ease 0s 1 normal forwards running;
+}
+#p2m {
+  opacity: 0;
+  animation: slide-fade-in-down-delayed 1s ease 150ms 1 normal forwards running;
+}
+
 /* #projects-title { */
 /* fill: red; */
 /* stroke-dasharray: 10;
@@ -45,6 +54,11 @@
 #card-bottom,
 #card-top {
   transition: 20ms ease;
+
+  border-radius: 16px;
+  -webkit-box-shadow: 0px 14px 40px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 40px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 40px 5px rgba(0, 0, 0, 0.15);
 }
 
 #contact-me-rect {
@@ -65,7 +79,7 @@
   transition: transform 0.5s ease;
   &:hover {
     /* border: 2px dashed grey; */
-    transform: rotateZ(15deg) scale(1.2);
+    transform: rotateZ(5deg) scale(1.2);
     z-index: 5;
   }
 }
@@ -78,12 +92,12 @@
   width: 40vw;
   position: absolute;
   /* bottom: -10vh - 100vh; */
-  right: 10vw;
+  left: 17vw;
 
   transition: transform 0.5s ease;
   &:hover {
     /* border: 2px dashed grey; */
-    transform: rotateZ(10deg) scale(1.2);
+    transform: rotateZ(-5deg) scale(1.2);
     z-index: 5;
   }
 }
